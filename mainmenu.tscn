@@ -6,32 +6,39 @@
 [node name="mainmenu_node2d" type="Node2D"]
 script = ExtResource("1_x4dml")
 
-[node name="play_button" type="Button" parent="."]
-offset_left = 538.0
-offset_top = 290.0
-offset_right = 1042.0
-offset_bottom = 473.0
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_4uuoi")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="play_button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -216.0
+offset_right = 252.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
-[node name="load_button" type="Button" parent="."]
-offset_left = 833.0
-offset_top = 529.0
-offset_right = 1265.0
-offset_bottom = 716.0
-theme_override_font_sizes/font_size = 50
-text = "LOAD"
-
-[node name="quit_button" type="Button" parent="."]
-offset_left = 1145.0
-offset_top = 780.0
-offset_right = 1575.0
-offset_bottom = 929.0
+[node name="quit_button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = 96.0
+offset_right = 215.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_4uuoi")]
-
-[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit_button" to="." method="_on_quit_button_pressed"]

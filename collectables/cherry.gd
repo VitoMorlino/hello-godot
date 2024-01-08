@@ -6,7 +6,7 @@ func _on_body_entered(body):
 
 func collect(_collector):
 	add_motion_to_pickup()
-	Utilities.save_game()
+	# Utilities.save_game() # save/load not needed, just practicing - kept code for reference
 	Game.change_score_by(10)
 		
 

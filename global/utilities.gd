@@ -1,5 +1,6 @@
 extends Node
 
+''' save and load not needed - kept code for reference
 
 const SAVE_PATH = "user://savegame.bin"
 
@@ -25,3 +26,4 @@ func load_game():
 			Game.number_of_enemy_kills = current_line["kill_count"]
 			Game.score = current_line["score"]
 		
+'''

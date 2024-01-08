@@ -6,9 +6,11 @@ func play_game():
 func _on_play_button_pressed():
 	play_game()
 
+''' load not needed, just practicing - kept for reference
 func _on_load_button_pressed():
 	Utilities.load_game()
 	play_game()
+'''
 
 func _on_quit_button_pressed():
 	get_tree().quit()
