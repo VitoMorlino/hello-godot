@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://d3i84mfvdcjuw"]
 
 [ext_resource type="Texture2D" uid="uid://ch0c3hiufjt6u" path="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-1.png" id="1_tv3dl"]
-[ext_resource type="Script" path="res://player/player_movement_character_body_2d.gd" id="1_vnekx"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_vnekx"]
 [ext_resource type="Texture2D" uid="uid://bscvor1x488l4" path="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-2.png" id="2_pxs8d"]
 [ext_resource type="Texture2D" uid="uid://7ktu83pfe70h" path="res://Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-1.png" id="2_v65ve"]
 [ext_resource type="Texture2D" uid="uid://c5lg4q2ratnv" path="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-3.png" id="3_dp6av"]

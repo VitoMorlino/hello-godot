@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3qhdor1unor5"]
+
+[ext_resource type="PackedScene" uid="uid://ctyksg8ntk4gx" path="res://parallax_background.tscn" id="1_c3bvn"]
+
+[node name="win_screen" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_c3bvn")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 79.0
+offset_top = 803.0
+offset_right = 1864.0
+offset_bottom = 975.0
+theme_override_colors/font_color = Color(0.839216, 0.952941, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 126
+text = "Nice! You 100%'d the game. :)"
+horizontal_alignment = 1

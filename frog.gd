@@ -69,8 +69,8 @@ func _on_take_damage_area_body_entered(body):
 func die(_cause):
 	is_defeated = true
 	add_collision_exception_with(player)
-	Game.number_of_enemy_kills += 1
 	Utilities.save_game()
+	Game.change_killcount_by(1)
 	anim_sprite2d.play("death")
 	await anim_sprite2d.animation_finished
-	self.queue_free()
+	queue_free()

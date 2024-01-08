@@ -8,6 +8,7 @@ func save_game():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data: Dictionary = {
 		"kill_count": Game.number_of_enemy_kills,
+		"score": Game.score,
 		# "key": value,
 		# other saved variables can go here as needed
 	}
@@ -22,4 +23,5 @@ func load_game():
 		var current_line = JSON.parse_string(file.get_line())
 		if current_line:
 			Game.number_of_enemy_kills = current_line["kill_count"]
+			Game.score = current_line["score"]
 		

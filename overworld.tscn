@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6ges5aodhups"]
+[gd_scene load_steps=13 format=3 uid="uid://c6ges5aodhups"]
 
 [ext_resource type="Texture2D" uid="uid://dhabf28urnufu" path="res://Sunny-land-files/Graphical Assets/environment/tileset.png" id="1_86v8r"]
 [ext_resource type="Script" path="res://parallax_background.gd" id="1_iyuui"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ce2yd3lru03ls" path="res://Sunny-land-files/Graphical Assets/environment/Background/back.png" id="2_avnli"]
 [ext_resource type="Texture2D" uid="uid://dbtr70k8rgl88" path="res://Sunny-land-files/Graphical Assets/environment/Background/props.png" id="2_othii"]
 [ext_resource type="PackedScene" uid="uid://byw8mx6h78imi" path="res://frog.tscn" id="6_5nafr"]
+[ext_resource type="PackedScene" uid="uid://byuhg60lv8hje" path="res://collectables/cherry.tscn" id="7_67hqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_433rl"]
 texture = ExtResource("1_86v8r")
@@ -781,18 +782,35 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_433rl")
 sources/1 = SubResource("TileSetAtlasSource_nvt8m")
 
-[sub_resource type="GDScript" id="GDScript_x5w8p"]
+[sub_resource type="GDScript" id="GDScript_wa1ym"]
+resource_name = "kills_label"
 script/source = "extends Label
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Game.game_updated.connect(_on_game_updated_signal)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _on_game_updated_signal():
 	text = \"Kills: \" + str(Game.number_of_enemy_kills)
+	
+
+"
+
+[sub_resource type="GDScript" id="GDScript_vx7gn"]
+resource_name = "score_label"
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	Game.game_updated.connect(_on_game_updated_signal)
+
+func _on_game_updated_signal():
+	text = \"Score: \" + str(Game.score)
+	
+
+
 "
 
 [node name="Overworld" type="Node2D"]
@@ -826,19 +844,43 @@ scale = Vector2(1.66, 1.66)
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="frog_CharacterBody2D" parent="enemies" instance=ExtResource("6_5nafr")]
-position = Vector2(721, 616)
+position = Vector2(720, 624)
 
 [node name="frog_CharacterBody2D2" parent="enemies" instance=ExtResource("6_5nafr")]
-position = Vector2(592, 611)
+position = Vector2(579, 624)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="kills" type="Label" parent="CanvasLayer"]
-offset_left = 138.0
-offset_top = 240.0
-offset_right = 178.0
-offset_bottom = 263.0
+[node name="kills" type="Label" parent="UI"]
+offset_left = 113.0
+offset_top = 128.0
+offset_right = 235.0
+offset_bottom = 183.0
 theme_override_colors/font_color = Color(0.411765, 0.247059, 0.333333, 1)
 theme_override_font_sizes/font_size = 40
 text = "Kills: 0"
-script = SubResource("GDScript_x5w8p")
+script = SubResource("GDScript_wa1ym")
+
+[node name="score" type="Label" parent="UI"]
+offset_left = 109.0
+offset_top = 60.0
+offset_right = 299.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0.411765, 0.247059, 0.333333, 1)
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+script = SubResource("GDScript_vx7gn")
+
+[node name="collectables" type="Node" parent="."]
+
+[node name="cherry" parent="collectables" instance=ExtResource("7_67hqf")]
+position = Vector2(629, 498)
+
+[node name="cherry2" parent="collectables" instance=ExtResource("7_67hqf")]
+position = Vector2(1536, 597)
+
+[node name="cherry3" parent="collectables" instance=ExtResource("7_67hqf")]
+position = Vector2(632, 591)
+
+[node name="cherry4" parent="collectables" instance=ExtResource("7_67hqf")]
+position = Vector2(1594, 598)
