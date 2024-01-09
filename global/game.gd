@@ -20,7 +20,7 @@ func update_game():
 		call_deferred("win_game")
 
 func win_game():
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://win_screen.tscn")
 
 func reset_game():
